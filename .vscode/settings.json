@@ -56,5 +56,14 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "Hungry Hero.sln"
+    "dotnet.defaultSolution": "Hungry Hero.sln",
+    "cSpell.words": [
+        "Behaviour",
+        "Cooldown",
+        "groundlayer",
+        "Lerp",
+        "Mathf",
+        "Raycast",
+        "Rigidbody"
+    ]
 }
