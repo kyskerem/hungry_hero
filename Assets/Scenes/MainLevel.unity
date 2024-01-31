@@ -563,7 +563,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementComponent: {fileID: 1944073631}
-  playerAnimationController: {fileID: 0}
+  playerAnimationController: {fileID: 1944073637}
 --- !u!114 &1944073637
 MonoBehaviour:
   m_ObjectHideFlags: 0
