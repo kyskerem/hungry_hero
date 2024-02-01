@@ -8,7 +8,7 @@ namespace Component
     {
         private SpriteRenderer renderer;
         private MovementComponent movementComponent;
-        private bool flipX = true;
+        private bool flipX = false;
         void Awake()
         {
             renderer = GetComponent<SpriteRenderer>();
