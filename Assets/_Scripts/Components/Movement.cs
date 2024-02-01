@@ -5,21 +5,18 @@ namespace Component
     [RequireComponent(typeof(Rigidbody2D))]
     public class MovementComponent : MonoBehaviour
     {
-        // ray line length for check if grounded method
-        [SerializeField] private float rayLength = .95f;
         [SerializeField] private float maxSpeed = 10f;
         // for sprite flipper class to use as a reference
         public Vector2 Direction { get; private set; }
         public float CurrentSpeed { get; private set; } = 0;
-        [SerializeField] private LayerMask groundlayer = 6;
+        [SerializeField] private float castWidth = 1f;         // Adjust the width of the box cast
+        [SerializeField] private float rayDistance = .9f;         // Adjust the distance of the box cast
+        [SerializeField] private float castHeight = 0.1f;      // Adjust the height of the box cast
+        [SerializeField] private LayerMask groundLayer = 6;
         [SerializeField] private Rigidbody2D rb;
         [SerializeField] private float jumpForce = 1f;
 
-        void Awake()
-        {
-            CheckIfGrounded();
-        }
-        void FixedUpdate()
+        void Update()
         {
             CheckIfGrounded();
         }
@@ -44,17 +41,25 @@ namespace Component
         }
 
 
+
         public bool CheckIfGrounded()
         {
-            // Check if there is any hit for ground layer            
-            RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, rayLength, groundlayer);
-            return hit.collider != null;
-        }
-        private void OnDrawGizmos()
-        {
-            Gizmos.DrawRay(transform.position, Vector2.down * rayLength);
-        }
+            // Cast a box downwards from the player's position
+            RaycastHit2D hit = Physics2D.BoxCast(
+                transform.position,
+                new Vector2(castWidth, castHeight),
+                0f,
+                Vector2.down,
+                rayDistance,
+                groundLayer
+            );
+            if (hit.collider == null) return false;
+            Logger.Log($"Colliding with {hit.collider.tag}");
+            float surfaceAngle = Vector2.Angle(hit.normal, Vector2.up);
+            Logger.Log($"surface angle is {surfaceAngle}");
+            return surfaceAngle <= 60f;
 
+        }
     }
 
 }
