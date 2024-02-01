@@ -40,8 +40,6 @@ namespace Component
             rb.velocity = new(rb.velocity.x, jumpForce);
         }
 
-
-
         public bool CheckIfGrounded()
         {
             // Cast a box downwards from the player's position
@@ -57,7 +55,7 @@ namespace Component
             // Logger.Log($"Colliding with {hit.collider.tag}");
             float surfaceAngle = Vector2.Angle(hit.normal, Vector2.up);
             // Logger.Log($"surface angle is {surfaceAngle}");
-            return surfaceAngle <= 60f;
+            return surfaceAngle <= 90f;
 
         }
     }

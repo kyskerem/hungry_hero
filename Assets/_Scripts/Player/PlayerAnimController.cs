@@ -4,7 +4,7 @@ namespace Player
 {
     enum PlayerAnimStates
     {
-        Run, Idle, Die, Jump
+        Run, Idle, Die, Jump, Attack
     }
 
     [RequireComponent(typeof(Animator))]
