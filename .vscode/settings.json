@@ -64,6 +64,8 @@
         "groundlayer",
         "Lerp",
         "Mathf",
+        "mipmap",
+        "Postprocessor",
         "Raycast",
         "Rigidbody"
     ]
