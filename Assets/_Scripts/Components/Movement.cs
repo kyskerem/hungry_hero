@@ -54,9 +54,9 @@ namespace Component
                 groundLayer
             );
             if (hit.collider == null) return false;
-            Logger.Log($"Colliding with {hit.collider.tag}");
+            // Logger.Log($"Colliding with {hit.collider.tag}");
             float surfaceAngle = Vector2.Angle(hit.normal, Vector2.up);
-            Logger.Log($"surface angle is {surfaceAngle}");
+            // Logger.Log($"surface angle is {surfaceAngle}");
             return surfaceAngle <= 60f;
 
         }
