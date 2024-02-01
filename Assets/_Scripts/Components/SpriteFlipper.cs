@@ -3,29 +3,27 @@ using UnityEngine;
 namespace Component
 {
     [RequireComponent(typeof(MovementComponent))]
-    [RequireComponent(typeof(SpriteRenderer))]
     public class SpriteFlipper : MonoBehaviour
     {
-        private SpriteRenderer renderer;
+
         private MovementComponent movementComponent;
-        private bool flipX = false;
+        private bool flip = false;
         void Awake()
         {
-            renderer = GetComponent<SpriteRenderer>();
             movementComponent = GetComponent<MovementComponent>();
         }
 
         void FixedUpdate()
         {
+            Vector3 scale = gameObject.transform.localScale;
             if (movementComponent.CurrentSpeed != 0)
             {
-                flipX = movementComponent.Direction.x < 0;
-                renderer.flipX = flipX;
+                flip = movementComponent.Direction.x < 0;
+                scale.x = flip ? -1 : 1;
             }
-            else
-            {
-                renderer.flipX = flipX;
-            }
+
+            gameObject.transform.localScale = scale;
         }
+
     }
 }
