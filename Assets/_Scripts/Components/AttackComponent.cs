@@ -11,14 +11,8 @@ namespace Component
         [SerializeField] private float attackTime = 1f;
         [SerializeField] private float attackCooldown = 2f;
         public event Action<float> OnAttacked;
-
         bool isCoolDown = false;
         public bool IsAttacking { get; private set; }
-
-
-        void Awake()
-        {
-        }
 
         public void Attack()
         {
@@ -35,11 +29,13 @@ namespace Component
             yield return new WaitForSecondsRealtime(attackCooldown);
             isCoolDown = false;
         }
+
         public void Hit(HealthComponent healthComponent)
         {
             healthComponent.TakeDamage(damage);
             OnAttack();
         }
+
         void OnAttack()
         {
             OnAttacked?.Invoke(damage);

@@ -17,9 +17,12 @@ namespace Component
         public void TakeDamage(float damage)
         {
             health -= damage;
-            if (health <= 0) OnDie();
             OnHealthChange();
-            Logger.LogWarning($"health: {health}");
+            if (health <= 0)
+            {
+                OnDie();
+                return;
+            };
 
         }
         void OnDie()

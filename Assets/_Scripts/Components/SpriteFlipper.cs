@@ -16,10 +16,17 @@ namespace Component
         void FixedUpdate()
         {
             Vector3 scale = gameObject.transform.localScale;
+
             if (movementComponent.CurrentSpeed != 0)
             {
-                flip = movementComponent.Direction.x < 0;
-                scale.x = flip ? -1 : 1;
+                bool newFlip = movementComponent.Direction.x < 0;
+
+                // Check if the flip state has changed
+                if (newFlip != flip)
+                {
+                    flip = newFlip;
+                    scale.x = Mathf.Abs(scale.x) * (flip ? -1 : 1);
+                }
             }
 
             gameObject.transform.localScale = scale;
