@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using Component;
 using UnityEngine;
 [RequireComponent(typeof(MovementComponent))]

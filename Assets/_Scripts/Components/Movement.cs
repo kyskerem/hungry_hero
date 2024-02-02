@@ -20,10 +20,13 @@ namespace Component
         public event Action OnIdle;
         public event Action OnJumped;
         public event Action OnMoved;
-
         void Update()
         {
             CheckIfGrounded();
+            if (name == "Fierce")
+            {
+                Logger.LogError(Direction.ToString());
+            }
         }
         public void ChangeCanMove()
         {
