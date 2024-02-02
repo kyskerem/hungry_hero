@@ -6,7 +6,7 @@ namespace Component
     public class HealthComponent : MonoBehaviour
     {
         [SerializeField] private float maxHealth = 30f;
-        public event Action<float> OnHealthChanged;
+        public event Action<float, float> OnHealthChanged;
         public event Action OnDied;
         public event Action OnHit;
         private float health;
@@ -14,6 +14,8 @@ namespace Component
         void Awake()
         {
             health = maxHealth;
+            // to ensure every health bar is correct
+            OnHealthChange();
         }
 
         public void TakeDamage(float damage)
@@ -38,7 +40,7 @@ namespace Component
         }
         void OnHealthChange()
         {
-            OnHealthChanged?.Invoke(health);
+            OnHealthChanged?.Invoke(health, maxHealth);
         }
     }
 }

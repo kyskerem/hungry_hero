@@ -23,6 +23,7 @@ namespace Player
             Logger.LogWarning("Player is dead");
             movementComponent.ChangeCanMove();
             playerAnimationController.ChangeCurrentState(PlayerAnimStates.Die);
+            // Time.timeScale = 0; // Freeze the game
         }
         void OnHit()
         {
