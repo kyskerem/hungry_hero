@@ -4,20 +4,23 @@ using UnityEngine;
 
 [RequireComponent(typeof(AIPlatformChecker))]
 [RequireComponent(typeof(MovementComponent))]
+[RequireComponent(typeof(MovementComponent))]
 public class AIMovementController : MonoBehaviour
 {
     [SerializeField] private AIPlatformChecker platformChecker;
     [SerializeField] private MovementComponent movementComponent;
+    [SerializeField] private HealthComponent healthComponent;
     private Vector2 direction;
     void Awake()
     {
         platformChecker = GetComponent<AIPlatformChecker>();
         movementComponent = GetComponent<MovementComponent>();
+        healthComponent = GetComponent<HealthComponent>();
         direction = movementComponent.Direction;
-        StartCoroutine(nameof(HandleAIMovement));
     }
-    IEnumerator HandleAIMovement()
+    void FixedUpdate()
     {
+        if (!healthComponent.IsAlive) return;
         bool isNextStepPlatform = platformChecker.CheckIfPlatform();
         if (!isNextStepPlatform)
         {
@@ -25,7 +28,5 @@ public class AIMovementController : MonoBehaviour
             direction = -movementComponent.Direction;
         }
         movementComponent.Move(direction);
-        yield return new WaitForSeconds(.3f);
-        StartCoroutine(nameof(HandleAIMovement));
     }
 }

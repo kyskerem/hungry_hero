@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using UnityEngine;
 
@@ -10,7 +9,6 @@ namespace Component
         [SerializeField] private float damage = 10f;
         [SerializeField] private float attackTime = 1f;
         [SerializeField] private float attackCooldown = 2f;
-        public event Action<float> OnAttacked;
         bool isCoolDown = false;
         public bool IsAttacking { get; private set; }
 
@@ -33,12 +31,6 @@ namespace Component
         public void Hit(HealthComponent healthComponent)
         {
             healthComponent.TakeDamage(damage);
-            OnAttack();
-        }
-
-        void OnAttack()
-        {
-            OnAttacked?.Invoke(damage);
         }
     }
 }

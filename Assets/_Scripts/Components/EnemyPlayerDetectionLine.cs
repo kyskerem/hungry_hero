@@ -12,6 +12,7 @@ public class EnemyPlayerDetectionLine : MonoBehaviour
     [SerializeField] private MovementComponent movementComponent;
     [SerializeField] private AttackComponent attackComponent;
 
+
     void Awake()
     {
         movementComponent = GetComponent<MovementComponent>();
@@ -24,10 +25,10 @@ public class EnemyPlayerDetectionLine : MonoBehaviour
     void Detect()
     {
         RaycastHit2D hit = Physics2D.Raycast(transform.position, movementComponent.Direction, rayDistance, playerLayer);
-        Logger.LogWarning($"player detected: {hit.collider != null}");
         if (hit.collider == null) return;
         hit.collider.gameObject.TryGetComponent(out HealthComponent healthComponent);
-        attackComponent.Hit(healthComponent);
+        movementComponent.Stop();
+        attackComponent.Attack();
     }
     void OnDrawGizmos()
     {

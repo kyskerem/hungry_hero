@@ -4711,6 +4711,8 @@ GameObject:
   - component: {fileID: 1281588999}
   - component: {fileID: 1281589000}
   - component: {fileID: 1281589001}
+  - component: {fileID: 1281589003}
+  - component: {fileID: 1281589002}
   m_Layer: 0
   m_Name: CCN
   m_TagString: Untagged
@@ -4971,7 +4973,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   castWidth: 0.2
   castHeight: 0.2
-  rayDistance: {x: 1.53, y: -0.69}
+  rayDistance: {x: 1.07, y: -0.69}
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -5005,6 +5007,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32a9b55a71fe341429528420b147e769, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1281589002
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1281588987}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea86abbb67b70c64f86b8708c8dcb156, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  movementComponent: {fileID: 1281588991}
+  attackComponent: {fileID: 1281588989}
+  healthComponent: {fileID: 1281588992}
+  CCNAnimController: {fileID: 1281589003}
+--- !u!114 &1281589003
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1281588987}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8732ab2dc32bb8745a6f3b992a2515e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 1281588994}
 --- !u!1 &1687197559
 GameObject:
   m_ObjectHideFlags: 0
@@ -5309,6 +5340,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movementComponent: {fileID: 1944073631}
   attackComponent: {fileID: 1944073639}
+  healthComponent: {fileID: 1944073641}
   playerAnimationController: {fileID: 1944073637}
 --- !u!114 &1944073637
 MonoBehaviour:

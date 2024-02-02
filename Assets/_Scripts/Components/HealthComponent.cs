@@ -8,7 +8,9 @@ namespace Component
         [SerializeField] private float maxHealth = 30f;
         public event Action<float> OnHealthChanged;
         public event Action OnDied;
+        public event Action OnHit;
         private float health;
+        public bool IsAlive { get; private set; } = true;
         void Awake()
         {
             health = maxHealth;
@@ -20,14 +22,19 @@ namespace Component
             OnHealthChange();
             if (health <= 0)
             {
+                IsAlive = false;
                 OnDie();
                 return;
             };
-
+            Hit();
         }
         void OnDie()
         {
             OnDied?.Invoke();
+        }
+        void Hit()
+        {
+            OnHit?.Invoke();
         }
         void OnHealthChange()
         {

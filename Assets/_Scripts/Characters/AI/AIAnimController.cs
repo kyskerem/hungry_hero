@@ -1,14 +1,15 @@
+using Unity;
 using UnityEngine;
 
-namespace Player
+namespace AI
 {
-    enum PlayerAnimStates
+    enum AIAnimStates
     {
-        Run, Idle, Die, Jump, Damage, Attack
+        Run, Idle, Die, Jump, Hit, Attack
     }
 
     [RequireComponent(typeof(Animator))]
-    class PlayerAnimationController : MonoBehaviour
+    class AIAnimController : MonoBehaviour
     {
         public static AnimationController Instance;
         [SerializeField] private Animator animator;
@@ -17,7 +18,7 @@ namespace Player
             animator = GetComponent<Animator>();
             Instance = new AnimationController(animator);
         }
-        public void ChangeCurrentState(PlayerAnimStates nextState)
+        public void ChangeCurrentState(AIAnimStates nextState)
         {
             string state = nextState.ToString();
             if (animator.GetCurrentAnimatorStateInfo(0).IsName(state)) return;

@@ -1,4 +1,4 @@
-using UnityEditor;
+using System;
 using UnityEngine;
 
 namespace Component
@@ -16,13 +16,23 @@ namespace Component
         [SerializeField] private LayerMask groundLayer = 6;
         [SerializeField] private Rigidbody2D rb;
         [SerializeField] private float jumpForce = 1f;
+        private bool canMove = true;
+        public event Action OnIdle;
+        public event Action OnJumped;
+        public event Action OnMoved;
 
         void Update()
         {
             CheckIfGrounded();
         }
+        public void ChangeCanMove()
+        {
+            canMove = !canMove;
+        }
         public void Move(Vector2 to)
         {
+            if (!canMove) return;
+            OnMoved?.Invoke();
             Direction = to;
             // Calculate target velocity based on the desired position (to) and speed
             Vector2 targetVelocity = new(to.x * maxSpeed, rb.velocity.y);
@@ -34,10 +44,12 @@ namespace Component
         public void Stop()
         {
             CurrentSpeed = 0;
+            OnIdle?.Invoke();
         }
         public void StartJump()
         {
             if (!CheckIfGrounded()) return;
+            OnJumped?.Invoke();
             rb.velocity = new(rb.velocity.x, jumpForce);
         }
         public bool CheckIfGrounded()
@@ -55,8 +67,8 @@ namespace Component
             // Logger.Log($"Colliding with {hit.collider.tag}");
             float surfaceAngle = Vector2.Angle(hit.normal, Vector2.up);
             // Logger.Log($"surface angle is {surfaceAngle}");
-            return surfaceAngle <= 90f;
 
+            return surfaceAngle <= 90f;
         }
         void OnDrawGizmos()
         {

@@ -5,7 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(HealthComponent))]
 [RequireComponent(typeof(MovementComponent))]
 [RequireComponent(typeof(AIAnimController))]
-public class CCNEventSubscription : MonoBehaviour
+public class CrabbyEventSubscription : MonoBehaviour
 {
     HealthComponent healthComponent;
     MovementComponent movementComponent;
