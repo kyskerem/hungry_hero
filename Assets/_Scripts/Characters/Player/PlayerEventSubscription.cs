@@ -5,18 +5,22 @@ namespace Player
     [RequireComponent(typeof(HealthComponent))]
     [RequireComponent(typeof(PlayerAnimationController))]
     [RequireComponent(typeof(MovementComponent))]
+    [RequireComponent(typeof(HungerComponent))]
     public class PlayerEventSubscription : MonoBehaviour
     {
         HealthComponent healthComponent;
         MovementComponent movementComponent;
+        HungerComponent hungerComponent;
         PlayerAnimationController playerAnimationController;
         void Awake()
         {
+            hungerComponent = GetComponent<HungerComponent>();
             healthComponent = GetComponent<HealthComponent>();
             playerAnimationController = GetComponent<PlayerAnimationController>();
             movementComponent = GetComponent<MovementComponent>();
             healthComponent.OnDied += OnDie;
             healthComponent.OnHit += OnHit;
+            hungerComponent.OnFull += OnFull;
         }
         void OnDie()
         {
@@ -29,6 +33,12 @@ namespace Player
         {
             playerAnimationController.ChangeCurrentState(PlayerAnimStates.Damage);
         }
+        void OnFull()
+        {
+            Time.timeScale = 0;
+            Logger.LogError("Player Won");
+        }
     }
+
 
 }
