@@ -23,10 +23,7 @@ namespace Component
         void Update()
         {
             CheckIfGrounded();
-            if (name == "Fierce")
-            {
-                Logger.LogError(Direction.ToString());
-            }
+
         }
         public void ChangeCanMove()
         {
