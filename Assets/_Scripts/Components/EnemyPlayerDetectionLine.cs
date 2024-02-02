@@ -1,3 +1,4 @@
+using System.Collections;
 using Component;
 using UnityEngine;
 [RequireComponent(typeof(MovementComponent))]
@@ -6,6 +7,8 @@ public class EnemyPlayerDetectionLine : MonoBehaviour
 {
     // Must be equal to attack area colliders length
     [SerializeField] private float rayDistance = .2f;
+    [SerializeField] private float detectCoolDown = .1f;
+    private bool isDetected = false;
     [SerializeField] private LayerMask playerLayer;
     [SerializeField] private MovementComponent movementComponent;
     [SerializeField] private AttackComponent attackComponent;
@@ -16,7 +19,7 @@ public class EnemyPlayerDetectionLine : MonoBehaviour
         movementComponent = GetComponent<MovementComponent>();
         attackComponent = GetComponent<AttackComponent>();
     }
-    void Update()
+    void FixedUpdate()
     {
         Detect();
     }
