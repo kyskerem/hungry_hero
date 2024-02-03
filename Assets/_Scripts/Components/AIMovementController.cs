@@ -1,6 +1,4 @@
-using System.Collections;
 using Component;
-using Player;
 using UnityEngine;
 
 [RequireComponent(typeof(AIPlatformChecker))]

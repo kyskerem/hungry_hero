@@ -1,6 +1,5 @@
-using System;
-using System.Collections.Generic;
 using Component;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 namespace Player
 {
@@ -29,7 +28,7 @@ namespace Player
             Logger.LogWarning("Player is dead");
             movementComponent.ChangeCanMove();
             playerAnimationController.ChangeCurrentState(PlayerAnimStates.Die);
-            // Time.timeScale = 0; // Freeze the game
+            Loader.Instance.RestartLevel();
         }
         void OnHit()
         {
@@ -37,8 +36,7 @@ namespace Player
         }
         void OnFull()
         {
-            Time.timeScale = 0;
-            Logger.LogError("Player Won");
+            Loader.Instance.LoadNextLevel();
         }
 
     }
