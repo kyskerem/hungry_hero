@@ -30,6 +30,12 @@ namespace Component
             };
             Hit();
         }
+        public void Heal(int number)
+        {
+            health += number;
+            health = Mathf.Clamp(health, 0, maxHealth);
+            OnHealthChange();
+        }
         void OnDie()
         {
             OnDied?.Invoke();

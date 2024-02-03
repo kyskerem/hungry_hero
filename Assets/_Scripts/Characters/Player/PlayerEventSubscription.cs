@@ -1,3 +1,5 @@
+using System;
+using System.Collections.Generic;
 using Component;
 using UnityEngine;
 namespace Player
@@ -38,7 +40,7 @@ namespace Player
             Time.timeScale = 0;
             Logger.LogError("Player Won");
         }
-    }
 
+    }
 
 }

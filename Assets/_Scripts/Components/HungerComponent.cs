@@ -15,7 +15,7 @@ namespace Component
             // Ensure hunger bar is correct
             OnHungerChanged?.Invoke(currentHunger, maxHunger);
         }
-        void IncreaseHunger(int number)
+        public void IncreaseHunger(int number)
         {
             currentHunger += number;
             OnHungerChanged?.Invoke(currentHunger, maxHunger);
