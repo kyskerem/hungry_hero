@@ -23,6 +23,7 @@ public class CharacterInputMovement : MonoBehaviour
     }
     void Movement()
     {
+        if (Input.GetKeyDown(KeyCode.Escape)) PauseMenu.Instance.ToggleMenu();
         if (Input.GetKeyDown(KeyCode.Space)) attackComponent.Attack();
         if (Input.GetKeyDown(KeyCode.UpArrow)) movementComponent.StartJump();
         direction.x = Input.GetAxis("Horizontal");
