@@ -1,6 +1,5 @@
 using UnityEngine;
 using UnityEditor;
-
 public class Logger : MonoBehaviour
 {
     // Set this flag to true to enable logging, and false to disable it
@@ -29,8 +28,9 @@ public class Logger : MonoBehaviour
             Debug.LogError(message);
         }
     }
-
+#if UNITY_EDITOR
     [MenuItem("HH/Logger/Toggle Logging")]
+#endif
     private static void ToggleLogging()
     {
         IsLoggingEnabled = !IsLoggingEnabled;

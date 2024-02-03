@@ -248,7 +248,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxSpeed: 7
-  castWidth: 0.95
+  castWidth: 0.7
   rayDistance: {x: 0, y: -0.86}
   castHeight: 0.1
   groundLayer:
