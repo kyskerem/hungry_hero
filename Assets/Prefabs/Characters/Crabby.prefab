@@ -213,9 +213,9 @@ GameObject:
   - component: {fileID: 4519404212512017867}
   - component: {fileID: 8693909191233939231}
   - component: {fileID: 2483290781075094238}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Crabby
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -409,7 +409,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   castWidth: 0.2
   castHeight: 0.2
-  rayDistance: {x: -1.31, y: -0.7}
+  rayDistance: {x: -0.85, y: -0.7}
   groundLayer:
     serializedVersion: 2
     m_Bits: 64

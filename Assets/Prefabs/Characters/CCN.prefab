@@ -391,9 +391,9 @@ GameObject:
   - component: {fileID: 7981736491986497644}
   - component: {fileID: 7885525129365980014}
   - component: {fileID: 2545204189862270575}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: CCN
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -654,7 +654,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   castWidth: 0.2
   castHeight: 0.2
-  rayDistance: {x: 1.07, y: -0.69}
+  rayDistance: {x: 0.69, y: -0.69}
   groundLayer:
     serializedVersion: 2
     m_Bits: 64

@@ -24,9 +24,9 @@ GameObject:
   - component: {fileID: 6778306382674402315}
   - component: {fileID: 1159405469395776146}
   - component: {fileID: 7256268328751586112}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Star
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -249,7 +249,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   castWidth: 0.2
   castHeight: 0.2
-  rayDistance: {x: -1.7, y: -1.01}
+  rayDistance: {x: -0.93, y: -1.01}
   groundLayer:
     serializedVersion: 2
     m_Bits: 64

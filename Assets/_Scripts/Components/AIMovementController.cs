@@ -1,5 +1,6 @@
 using System.Collections;
 using Component;
+using Player;
 using UnityEngine;
 
 [RequireComponent(typeof(AIPlatformChecker))]
@@ -28,5 +29,15 @@ public class AIMovementController : MonoBehaviour
             direction = -movementComponent.Direction;
         }
         movementComponent.Move(direction);
+    }
+    void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.collider.CompareTag("Enemy"))
+        {
+            Logger.Log("Collide With Enemy");
+            platformChecker.Mirror = !platformChecker.Mirror;
+            direction = -direction;
+            movementComponent.Move(direction);
+        };
     }
 }

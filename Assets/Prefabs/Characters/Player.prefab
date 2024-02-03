@@ -211,7 +211,7 @@ Rigidbody2D:
   m_Mass: 1.4972414
   m_LinearDrag: 0.8
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 3
   m_Material: {fileID: 6200000, guid: 46f7697586b94b04f92e654b3a596178, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
@@ -253,9 +253,9 @@ MonoBehaviour:
   castHeight: 0.1
   groundLayer:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 192
   rb: {fileID: 7912896161541782396}
-  jumpForce: 10
+  jumpForce: 17
 --- !u!114 &4463061803095092156
 MonoBehaviour:
   m_ObjectHideFlags: 0
